@@ -34,6 +34,7 @@ option(NODPL    "Disable samples that require the oneAPI DPC++ Library (oneDPL).
 option(NODPCT   "Disable samples that require the DPC++ Compatibility Tool (dpct).")
 option(NOL0     "Disable samples that require the oneAPI Level Zero Headers and Loader." ON)
 option(WITHCUDA "Enable CUDA device support for the samples.")
+option(WITHADAPTIVECPP "Use AdaptiveCpp compilation flags.")
 
 set(CUDA_GPU_ARCH "sm_60" CACHE STRING "CUDA GPUs to compile for.")
 if (WITHCUDA)

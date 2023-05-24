@@ -107,3 +107,4 @@ See your CMake documentation for more details.
 | NODPCT | BOOL | Disable samples that require the DPC++ Compatibility Tool (dpct).  Default: `FALSE`
 | NOL0 | BOOL | Disable samples that require the oneAPI Level Zero Headers and Loader.  Default: `TRUE`
 | WITHCUDA | BOOL | Enable CUDA device support for the samples.  Default: `FALSE`
+| WITHADAPTIVECPP | BOOL | Use AdaptiveCpp compilation flags.  Default: `FALSE`

@@ -17,14 +17,19 @@ function(add_book_sample)
 
     add_executable(${BOOK_SAMPLE_TARGET} ${BOOK_SAMPLE_SOURCES})
 
-    if(WITHCUDA)
-        set(BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS} -fsycl-targets=nvptx64-nvidia-cuda,spir64 -Xsycl-target-backend=nvptx64-nvidia-cuda --cuda-gpu-arch=${CUDA_GPU_ARCH})
-        set(BOOK_SAMPLE_LIBS ${BOOK_SAMPLE_LIBS} -fsycl-targets=nvptx64-nvidia-cuda,spir64 -Xsycl-target-backend=nvptx64-nvidia-cuda --cuda-gpu-arch=${CUDA_GPU_ARCH})
+    if(WITHADAPTIVECPP)
+        target_compile_options(${BOOK_SAMPLE_TARGET} PRIVATE --acpp-targets=generic -std=c++17 ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS})
+        target_link_libraries(${BOOK_SAMPLE_TARGET} PRIVATE ${BOOK_SAMPLE_LIBS} --acpp-targets=generic)
+    else()
+        if(WITHCUDA)
+            set(BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS} -fsycl-targets=nvptx64-nvidia-cuda,spir64 -Xsycl-target-backend=nvptx64-nvidia-cuda --cuda-gpu-arch=${CUDA_GPU_ARCH})
+            set(BOOK_SAMPLE_LIBS ${BOOK_SAMPLE_LIBS} -fsycl-targets=nvptx64-nvidia-cuda,spir64 -Xsycl-target-backend=nvptx64-nvidia-cuda --cuda-gpu-arch=${CUDA_GPU_ARCH})
+        endif()
+
+        target_compile_options(${BOOK_SAMPLE_TARGET} PRIVATE -fsycl -fsycl-unnamed-lambda -ferror-limit=1 -Wall -Wpedantic ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS})
+
+        target_link_libraries(${BOOK_SAMPLE_TARGET} PRIVATE ${BOOK_SAMPLE_LIBS} -fsycl)
     endif()
-
-    target_compile_options(${BOOK_SAMPLE_TARGET} PRIVATE -fsycl -fsycl-unnamed-lambda -ferror-limit=1 -Wall -Wpedantic ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS})
-
-    target_link_libraries(${BOOK_SAMPLE_TARGET} PRIVATE ${BOOK_SAMPLE_LIBS} -fsycl)
 
     if(CMAKE_CONFIGURATION_TYPES)
         set(BOOK_SAMPLE_CONFIGS ${CMAKE_CONFIGURATION_TYPES})
