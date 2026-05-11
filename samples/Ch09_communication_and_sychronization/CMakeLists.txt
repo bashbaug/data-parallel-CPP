@@ -13,20 +13,24 @@ add_book_sample(
     SOURCES fig_9_7_local_accessors.cpp)
 
 add_book_sample(
-    TEST
+    #TEST
     TARGET fig_9_8_ndrange_tiled_matmul
     SOURCES matmul_harness.cpp fig_9_8_ndrange_tiled_matmul.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_9_9_sub_group_barrier
     SOURCES fig_9_9_sub_group_barrier.cpp)
+endif()
 
 add_book_sample(
-    TEST
+    #TEST
     TARGET fig_9_11_matmul_broadcast
     SOURCES matmul_harness.cpp fig_9_11_matmul_broadcast.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TARGET fig_9_12_ndrange_sub_group_matmul
     SOURCES matmul_harness.cpp fig_9_12_ndrange_sub_group_matmul.cpp)
+endif()

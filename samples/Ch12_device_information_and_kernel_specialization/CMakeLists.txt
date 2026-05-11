@@ -22,15 +22,19 @@ add_book_sample(
     TARGET fig_12_5_curious
     SOURCES fig_12_5_curious.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_12_7_very_curious
     SOURCES fig_12_7_very_curious.cpp)
+endif()
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_12_8_invocation_parameters
     SOURCES fig_12_8_invocation_parameters.cpp)
+endif()
 
 add_book_sample(
     TEST

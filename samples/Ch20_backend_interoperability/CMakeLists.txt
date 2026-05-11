@@ -2,16 +2,20 @@
 
 # SPDX-License-Identifier: MIT
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_20_2_querying_backends
     SOURCES fig_20_2_querying_backends.cpp)
+endif()
 
+if(NOT NOCL)
 add_book_sample(
     #TEST   # disable temporarily due to bug
     TARGET fig_20_3_opencl_to_sycl
     SOURCES fig_20_3_opencl_to_sycl.cpp
     LIBS OpenCL)
+endif()
 
 if(NOT NOL0)
 add_book_sample(
@@ -21,11 +25,13 @@ add_book_sample(
     LIBS ze_loader)
 endif()
 
+if(NOT NOCL)
 add_book_sample(
     TEST
     TARGET fig_20_5_sycl_to_opencl
     SOURCES fig_20_5_sycl_to_opencl.cpp
     LIBS OpenCL)
+endif()
 
 if(NOT NOL0)
 add_book_sample(
@@ -35,11 +41,13 @@ add_book_sample(
     LIBS ze_loader)
 endif()
 
+if(NOT NOCL)
 add_book_sample(
     TEST
     TARGET fig_20_7_interop_handle_opencl
     SOURCES fig_20_7_interop_handle_opencl.cpp
     LIBS OpenCL)
+endif()
 
 if(NOT NOL0)
 add_book_sample(
@@ -49,11 +57,13 @@ add_book_sample(
     LIBS ze_loader)
 endif()
 
+if(NOT NOCL)
 add_book_sample(
     TEST
     TARGET fig_20_9_opencl_kernel_interop
     SOURCES fig_20_9_opencl_kernel_interop.cpp
     LIBS OpenCL)
+endif()
 
 if(NOT NOL0)
 add_book_sample(
@@ -63,7 +73,9 @@ add_book_sample(
     LIBS ze_loader)
 endif()
 
+if(NOT NOCL)
 add_book_sample(
     TEST
     TARGET fig_20_11_filter_selector
     SOURCES fig_20_11_filter_selector.cpp)
+endif()

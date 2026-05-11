@@ -2,10 +2,12 @@
 
 # SPDX-License-Identifier: MIT
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_11_2_marray
     SOURCES fig_11_2_marray.cpp)
+endif()
 
 add_book_sample(
     TEST
@@ -17,7 +19,9 @@ add_book_sample(
     TARGET fig_11_6_swizzle_vec
     SOURCES fig_11_6_swizzle_vec.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_11_7_vector_exec
     SOURCES fig_11_7_vector_exec.cpp)
+endif()

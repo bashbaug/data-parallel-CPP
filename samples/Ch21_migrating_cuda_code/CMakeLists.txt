@@ -7,19 +7,23 @@ add_book_sample(
     TARGET fig_21_1_basicsycl
     SOURCES fig_21_1_basicsycl.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_21_5_walkorder
     SOURCES fig_21_5_walkorder.cpp)
+endif()
 
 add_book_sample(
     TARGET fig_21_7_possible_deadlock
     SOURCES fig_21_7_possible_deadlock.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_21_8_barriers
     SOURCES fig_21_8_barriers.cpp)
+endif()
 
 add_book_sample(
     TEST

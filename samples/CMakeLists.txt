@@ -27,9 +27,9 @@ function(add_book_sample)
         set(BOOK_SAMPLE_LIBS ${BOOK_SAMPLE_LIBS} -fsycl-targets=amdgcn-amd-amdhsa,spir64 -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=${ROCM_GPU_ARCH})
     endif()
 
-    target_compile_options(${BOOK_SAMPLE_TARGET} PRIVATE -fsycl -fsycl-unnamed-lambda -ferror-limit=1 -Wall -Wpedantic ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS})
+    target_compile_options(${BOOK_SAMPLE_TARGET} PRIVATE -ferror-limit=1 -Wall -Wpedantic -Wno-infinite-recursion ${BOOK_SAMPLE_ADDITIONAL_COMPILE_OPTIONS})
 
-    target_link_libraries(${BOOK_SAMPLE_TARGET} PRIVATE ${BOOK_SAMPLE_LIBS} -fsycl)
+    target_link_libraries(${BOOK_SAMPLE_TARGET} PRIVATE ${BOOK_SAMPLE_LIBS} /home/bashbaug/git/ProtoSYCL/build/libProtoSYCL.a)
 
     if(CMAKE_CONFIGURATION_TYPES)
         set(BOOK_SAMPLE_CONFIGS ${CMAKE_CONFIGURATION_TYPES})

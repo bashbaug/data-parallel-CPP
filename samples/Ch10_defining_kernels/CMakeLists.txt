@@ -7,10 +7,12 @@ add_book_sample(
     TARGET fig_10_2_kernel_lambda
     SOURCES fig_10_2_kernel_lambda.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_10_3_optional_kernel_lambda_elements
     SOURCES fig_10_3_optional_kernel_lambda_elements.cpp)
+endif()
 
 add_book_sample(
     TEST

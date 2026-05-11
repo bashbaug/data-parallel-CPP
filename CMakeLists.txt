@@ -19,7 +19,7 @@ if (NOT CMAKE_CXX_COMPILER)
 endif()
 
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (NOT CMAKE_BUILD_TYPE)
@@ -33,9 +33,11 @@ project(DPCPPSamples)
 option(NODPL    "Disable samples that require the oneAPI DPC++ Library (oneDPL).")
 option(NODPCT   "Disable samples that require the DPC++ Compatibility Tool (dpct)." ON)
 option(NOFPGA   "Disable samples that require DPC++ FPGA extensions." ON)
+option(NOCL     "Disable samples that require OpenCL interop.")
 option(NOL0     "Disable samples that require the oneAPI Level Zero Headers and Loader." ON)
 option(WITHCUDA "Enable CUDA device support for the samples.")
 option(WITHROCM "Enable ROCm device support for the samples.")
+option(EXTRASKIP "Disable a few more extra samples.")
 
 if (WITHCUDA AND WITHROCM)
     message(FATAL_ERROR "WITHCUDA and WITHROCM cannot be enabled at the same time.\n" 

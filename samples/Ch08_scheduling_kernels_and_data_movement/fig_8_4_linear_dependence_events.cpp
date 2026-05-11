@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 #include <sycl/sycl.hpp>
+#include <assert.h>
 using namespace sycl;
 constexpr int N = 42;
 

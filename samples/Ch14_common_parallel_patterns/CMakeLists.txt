@@ -7,20 +7,24 @@ add_book_sample(
     TARGET fig_14_8_one_reduction
     SOURCES fig_14_8_one_reduction.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_14_11_array_reduction
     SOURCES fig_14_11_array_reduction.cpp)
+endif()
 
 add_book_sample(
     TEST
     TARGET fig_14_12_user_defined_reduction
     SOURCES fig_14_12_user_defined_reduction.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_14_13_algorithm_comparison
     SOURCES fig_14_13_algorithm_comparison.cpp)
+endif()
 
 add_book_sample(
     TEST
@@ -43,22 +47,28 @@ add_book_sample(
     TARGET fig_14_18_basic_reduction
     SOURCES fig_14_18_basic_reduction.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_14_19_nd_range_reduction
     SOURCES fig_14_19_nd_range_reduction.cpp)
+endif()
 
 add_book_sample(
     TEST
     TARGET fig_14_20-22_inclusive_scan
     SOURCES fig_14_20-22_inclusive_scan.cpp)
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_14_24_local_pack
     SOURCES fig_14_24_local_pack.cpp)
+endif()
 
+if(NOT EXTRASKIP)
 add_book_sample(
     TEST
     TARGET fig_14_26_local_unpack
     SOURCES fig_14_26_local_unpack.cpp)
+endif()
